@@ -59,6 +59,9 @@ const WorkoutEdit: React.FC = () => {
 
   return (
     <div className="workout-edit-page">
+      <div className="workout-edit-header">
+        <h1>筋トレ記録を編集</h1>
+      </div>
       <WorkoutForm
         onSubmit={handleSubmit}
         onCancel={handleCancel}
