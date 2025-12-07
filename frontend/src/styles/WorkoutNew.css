@@ -1,11 +1,58 @@
+/* 全体のコンテナ */
 .workout-new-page {
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 40px 20px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
+/* 背景のアニメーション要素 */
+.workout-new-page::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: -300px;
+  right: -300px;
+  animation: float 20s infinite ease-in-out;
+}
+
+.workout-new-page::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  bottom: -200px;
+  left: -200px;
+  animation: float 15s infinite ease-in-out reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+/* レスポンシブデザイン */
 @media (max-width: 768px) {
   .workout-new-page {
-    padding: 20px 12px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .workout-new-page {
+    padding: 12px;
   }
 }

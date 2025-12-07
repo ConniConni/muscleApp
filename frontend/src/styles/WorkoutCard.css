@@ -1,23 +1,29 @@
+/* ワークアウトカード */
 .workout-card {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  border: 1px solid transparent;
 }
 
 .workout-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.15);
+  border-color: #e2e8f0;
 }
 
+/* カードヘッダー */
 .workout-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 20px 24px;
+  border-bottom: 1px solid #f1f5f9;
+  background: linear-gradient(to bottom, #fafbfc 0%, #ffffff 100%);
 }
 
 .user-info {
@@ -27,116 +33,144 @@
 }
 
 .user-avatar {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid #e2e8f0;
 }
 
 .user-avatar-placeholder {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 18px;
   text-transform: uppercase;
+  border: 2px solid #e2e8f0;
 }
 
 .username {
-  font-weight: 500;
-  color: #333;
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 15px;
 }
 
 .workout-date {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  font-size: 12px;
-  color: #666;
+  font-size: 13px;
+  color: #64748b;
 }
 
 .workout-date .date {
-  font-weight: 500;
+  font-weight: 600;
+  color: #475569;
 }
 
 .workout-date .time {
-  color: #999;
-  margin-top: 2px;
+  color: #94a3b8;
+  margin-top: 4px;
 }
 
+/* カードボディ */
 .workout-card-body {
-  padding: 20px;
+  padding: 24px;
 }
 
 .workout-info {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .body-part-badge {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 4px 12px;
-  border-radius: 16px;
-  font-size: 12px;
-  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }
 
 .exercise-name {
   margin: 0;
-  font-size: 20px;
-  color: #333;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.3px;
 }
 
+/* ワークアウト統計 */
 .workout-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .stat {
-  background: #f8f9fa;
-  padding: 12px;
-  border-radius: 8px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 16px;
+  border-radius: 12px;
   text-align: center;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s;
+}
+
+.stat:hover {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  transform: translateY(-2px);
 }
 
 .stat-label {
   display: block;
   font-size: 12px;
-  color: #666;
-  margin-bottom: 4px;
+  color: #64748b;
+  margin-bottom: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .stat-value {
   display: block;
-  font-size: 18px;
-  font-weight: 600;
-  color: #333;
+  font-size: 20px;
+  font-weight: 800;
+  color: #1e293b;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
+/* メモ */
 .workout-memo {
-  color: #555;
-  line-height: 1.6;
-  margin: 16px 0;
-  padding: 12px;
-  background: #f8f9fa;
-  border-radius: 8px;
+  color: #475569;
+  line-height: 1.7;
+  margin: 20px 0;
+  padding: 16px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 12px;
   font-size: 14px;
+  border-left: 3px solid #667eea;
 }
 
+/* 画像 */
 .workout-image {
-  margin-top: 16px;
-  border-radius: 8px;
+  margin-top: 20px;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .workout-image img {
@@ -145,26 +179,87 @@
   display: block;
 }
 
+/* カードフッター */
 .workout-card-footer {
-  padding: 12px 20px;
-  border-top: 1px solid #f0f0f0;
+  padding: 16px 24px;
+  border-top: 1px solid #f1f5f9;
+  background: #fafbfc;
 }
 
 .interaction {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   font-size: 14px;
-  color: #666;
+  color: #64748b;
+  font-weight: 600;
 }
 
 .likes-count,
 .comments-count {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  transition: color 0.3s;
 }
 
+.likes-count:hover,
+.comments-count:hover {
+  color: #667eea;
+}
+
+/* レスポンシブデザイン */
 @media (max-width: 768px) {
+  .workout-card {
+    border-radius: 16px;
+    margin-bottom: 20px;
+  }
+
+  .workout-card-header {
+    padding: 16px 20px;
+  }
+
+  .workout-card-body {
+    padding: 20px;
+  }
+
+  .user-avatar,
+  .user-avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .username {
+    font-size: 14px;
+  }
+
+  .exercise-name {
+    font-size: 20px;
+  }
+
+  .workout-stats {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 10px;
+  }
+
+  .stat {
+    padding: 14px;
+  }
+
+  .stat-value {
+    font-size: 18px;
+  }
+
+  .interaction {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .workout-card {
+    border-radius: 12px;
+  }
+
   .workout-card-header {
     padding: 12px 16px;
   }
@@ -173,11 +268,36 @@
     padding: 16px;
   }
 
-  .workout-stats {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  }
-
   .exercise-name {
     font-size: 18px;
+  }
+
+  .workout-stats {
+    gap: 8px;
+  }
+
+  .stat {
+    padding: 12px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+
+  .stat-value {
+    font-size: 16px;
+  }
+
+  .workout-memo {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .workout-card-footer {
+    padding: 12px 16px;
+  }
+
+  .interaction {
+    font-size: 13px;
   }
 }

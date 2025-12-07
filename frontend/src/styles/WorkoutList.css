@@ -1,29 +1,91 @@
+/* ワークアウトリストコンテナ */
 .workout-list {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 48px 48px;
 }
 
-.workout-list-loading,
+/* ローディング状態 */
+.workout-list-loading {
+  text-align: center;
+  padding: 80px 20px;
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.workout-list-loading::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 20px auto 0;
+  border: 4px solid #e2e8f0;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 空の状態 */
 .workout-list-empty {
   text-align: center;
-  padding: 60px 20px;
-  color: #666;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin: 0 48px;
 }
 
 .workout-list-empty p:first-child {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 12px;
 }
 
 .workout-list-empty p:last-child {
-  font-size: 14px;
-  color: #999;
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.6;
 }
 
+/* レスポンシブデザイン */
 @media (max-width: 768px) {
   .workout-list {
-    padding: 12px;
+    padding: 0 24px 24px;
+  }
+
+  .workout-list-empty {
+    margin: 0 24px;
+    padding: 60px 20px;
+  }
+
+  .workout-list-empty p:first-child {
+    font-size: 18px;
+  }
+
+  .workout-list-empty p:last-child {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .workout-list {
+    padding: 0 16px 16px;
+  }
+
+  .workout-list-empty {
+    margin: 0 16px;
+    padding: 40px 16px;
+  }
+
+  .workout-list-loading {
+    padding: 60px 16px;
   }
 }
