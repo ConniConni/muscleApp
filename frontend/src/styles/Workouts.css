@@ -1,0 +1,152 @@
+/* 全体のコンテナ */
+.workouts-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f8fafc 0%, #e2e8f0 100%);
+  padding: 0;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ヘッダー */
+.workouts-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 32px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+
+.workouts-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 15s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.workouts-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 作成ボタン */
+.btn-create {
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #667eea;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-create:hover {
+  background: white;
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-create:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* エラーメッセージ */
+.error-message {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  color: #991b1b;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  margin: 0 48px 24px;
+  border: 1px solid #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  animation: shake 0.5s;
+}
+
+.error-message::before {
+  content: '⚠️';
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .workouts-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 24px 32px;
+  }
+
+  .workouts-header h1 {
+    font-size: 28px;
+  }
+
+  .btn-create {
+    width: 100%;
+  }
+
+  .error-message {
+    margin: 0 24px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .workouts-header {
+    padding: 20px 16px;
+  }
+
+  .workouts-header h1 {
+    font-size: 24px;
+  }
+
+  .error-message {
+    margin: 0 16px 16px;
+  }
+}

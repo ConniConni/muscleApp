@@ -1,0 +1,18 @@
+.workout-edit-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px;
+}
+
+.workout-edit-page .loading {
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  padding: 40px 20px;
+}
+
+@media (max-width: 768px) {
+  .workout-edit-page {
+    padding: 20px 12px;
+  }
+}

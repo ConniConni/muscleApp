@@ -5,6 +5,10 @@ import PrivateRoute from './components/PrivateRoute';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
+import Workouts from './pages/Workouts';
+import WorkoutNew from './pages/WorkoutNew';
+import WorkoutDetail from './pages/WorkoutDetail';
+import WorkoutEdit from './pages/WorkoutEdit';
 
 function App() {
   return (
@@ -18,6 +22,38 @@ function App() {
             element={
               <PrivateRoute>
                 <Home />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/workouts"
+            element={
+              <PrivateRoute>
+                <Workouts />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/workouts/new"
+            element={
+              <PrivateRoute>
+                <WorkoutNew />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/workouts/:id"
+            element={
+              <PrivateRoute>
+                <WorkoutDetail />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/workouts/:id/edit"
+            element={
+              <PrivateRoute>
+                <WorkoutEdit />
               </PrivateRoute>
             }
           />
