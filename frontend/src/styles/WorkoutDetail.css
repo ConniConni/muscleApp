@@ -1,12 +1,55 @@
 .workout-detail-page {
   min-height: 100vh;
   background: var(--color-bg-gradient-page);
-  padding: 40px var(--spacing-xl);
+  padding: 0;
+}
+
+/* ヘッダー */
+.workout-detail-header {
+  background: var(--color-primary-gradient);
+  color: var(--color-bg-white);
+  padding: var(--spacing-2xl) var(--spacing-5xl);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: var(--spacing-5xl);
+}
+
+.workout-detail-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: var(--color-white-10);
+  border-radius: var(--radius-full);
+  animation: float 15s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.workout-detail-header h1 {
+  margin: 0;
+  font-size: var(--font-size-6xl);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: var(--letter-spacing-tight);
+  position: relative;
+  z-index: var(--z-base);
 }
 
 .detail-container {
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 var(--spacing-5xl);
+  margin-bottom: 40px;
   background: var(--color-bg-white);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -118,7 +161,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: var(--spacing-xl);
   margin-bottom: 30px;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .user-info-left {
@@ -368,8 +413,16 @@
 }
 
 @media (max-width: 768px) {
-  .workout-detail-page {
-    padding: var(--spacing-xl) var(--spacing-md);
+  .workout-detail-header {
+    padding: var(--spacing-2xl) var(--spacing-3xl);
+  }
+
+  .workout-detail-header h1 {
+    font-size: var(--font-size-5xl);
+  }
+
+  .detail-container {
+    padding: 0 var(--spacing-2xl);
   }
 
   .detail-content {
@@ -400,6 +453,18 @@
 }
 
 @media (max-width: 480px) {
+  .workout-detail-header {
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+
+  .workout-detail-header h1 {
+    font-size: var(--font-size-4xl);
+  }
+
+  .detail-container {
+    padding: 0 var(--spacing-lg);
+  }
+
   .detail-header {
     padding: var(--spacing-lg);
     gap: var(--spacing-sm);

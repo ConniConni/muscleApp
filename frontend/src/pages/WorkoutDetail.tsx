@@ -91,6 +91,10 @@ const WorkoutDetail: React.FC = () => {
 
   return (
     <div className="workout-detail-page">
+      <div className="workout-detail-header">
+        <h1>筋トレ記録詳細</h1>
+      </div>
+
       <div className="detail-container">
         <div className="detail-header">
           <button onClick={handleBack} className="btn-back">← 戻る</button>
