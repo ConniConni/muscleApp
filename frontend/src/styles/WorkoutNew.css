@@ -60,7 +60,7 @@
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
   .workout-new-header {
-    padding: var(--spacing-2xl) var(--spacing-3xl);
+    padding: var(--spacing-2xl) var(--spacing-xl);
   }
 
   .workout-new-header h1 {
@@ -68,20 +68,20 @@
   }
 
   .workout-new-page > .workout-form-container {
-    padding: var(--spacing-2xl);
+    padding: var(--spacing-lg);
   }
 }
 
 @media (max-width: 480px) {
   .workout-new-header {
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-sm);
   }
 
   .workout-new-header h1 {
     font-size: var(--font-size-4xl);
   }
 
-  .workout-new-page > form {
-    padding: var(--spacing-lg);
+  .workout-new-page > .workout-form-container {
+    padding: var(--spacing-sm);
   }
 }

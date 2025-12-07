@@ -7,6 +7,7 @@
   padding: var(--spacing-5xl);
   max-width: 600px;
   width: 100%;
+  box-sizing: border-box;
   position: relative;
   z-index: var(--z-base);
   animation: slideUp var(--transition-slow) ease-out;
@@ -240,8 +241,9 @@
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
   .workout-form-container {
-    padding: var(--spacing-3xl) var(--spacing-2xl);
+    padding: var(--spacing-2xl);
     border-radius: var(--radius-xl);
+    max-width: 100%;
   }
 
   .workout-form h2 {
@@ -268,15 +270,19 @@
 
 @media (max-width: 480px) {
   .workout-form-container {
-    padding: var(--spacing-5xl) var(--spacing-xl);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    max-width: 100%;
   }
 
   .workout-form h2 {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-sm);
   }
 
   .workout-form p {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-2xl);
   }
 
   .form-actions {
