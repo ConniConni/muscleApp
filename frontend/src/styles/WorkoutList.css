@@ -1,0 +1,29 @@
+.workout-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.workout-list-loading,
+.workout-list-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.workout-list-empty p:first-child {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.workout-list-empty p:last-child {
+  font-size: 14px;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .workout-list {
+    padding: 12px;
+  }
+}
