@@ -19,6 +19,9 @@ const WorkoutNew: React.FC = () => {
 
   return (
     <div className="workout-new-page">
+      <div className="workout-new-header">
+        <h1>筋トレ記録を登録</h1>
+      </div>
       <WorkoutForm onSubmit={handleSubmit} onCancel={handleCancel} />
     </div>
   );
