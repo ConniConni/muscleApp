@@ -67,16 +67,19 @@
   align-items: flex-end;
   font-size: 13px;
   color: #64748b;
+  white-space: nowrap;
 }
 
 .workout-date .date {
   font-weight: 600;
   color: #475569;
+  white-space: nowrap;
 }
 
 .workout-date .time {
   color: #94a3b8;
   margin-top: 4px;
+  white-space: nowrap;
 }
 
 /* カードボディ */
