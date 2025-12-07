@@ -231,48 +231,48 @@
   font-size: 18px;
 }
 
-/* 次のステップ */
-.next-steps {
-  border-top: 2px dashed #e2e8f0;
-  padding-top: 32px;
-  position: relative;
-}
-
-.next-steps::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: 0;
-  width: 100px;
-  height: 2px;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-}
-
-.next-steps h3 {
-  margin-top: 0;
-  margin-bottom: 16px;
-  color: #1e293b;
-  font-size: 22px;
-  font-weight: 700;
+/* アクションボタン */
+.action-buttons {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  gap: 16px;
+  margin-top: 32px;
 }
 
-.next-steps h3::before {
-  content: '🚀';
-  font-size: 24px;
-}
-
-.next-steps p {
-  color: #64748b;
-  font-size: 16px;
-  line-height: 1.8;
-  padding: 16px 24px;
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+.primary-button,
+.secondary-button {
+  flex: 1;
+  padding: 16px 32px;
+  border: none;
   border-radius: 12px;
-  border-left: 4px solid #667eea;
-  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.5px;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.secondary-button {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.secondary-button:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
 }
 
 /* レスポンシブデザイン */
@@ -332,9 +332,8 @@
     min-width: auto;
   }
 
-  .next-steps h3 {
+  .action-buttons {
     flex-direction: column;
-    text-align: center;
   }
 }
 

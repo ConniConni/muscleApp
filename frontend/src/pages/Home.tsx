@@ -26,19 +26,22 @@ const Home: React.FC = () => {
 
       <main className="home-main">
         <div className="welcome-card">
-          <h2>🎉 認証機能の実装が完了しました！</h2>
-          <p>ログイン・新規登録が正常に動作しています。</p>
+          <h2>🎉 筋トレ記録共有アプリへようこそ！</h2>
+          <p>友達と一緒に筋トレを頑張りましょう！</p>
           <div className="user-details">
             <h3>ユーザー情報</h3>
             <ul>
               <li><strong>ユーザー名:</strong> {user?.username}</li>
               <li><strong>メールアドレス:</strong> {user?.email}</li>
-              <li><strong>ユーザーID:</strong> {user?.id}</li>
             </ul>
           </div>
-          <div className="next-steps">
-            <h3>次のステップ</h3>
-            <p>スプリント3では、筋トレ記録の投稿機能を実装します。</p>
+          <div className="action-buttons">
+            <button onClick={() => navigate('/workouts')} className="primary-button">
+              筋トレ記録を見る
+            </button>
+            <button onClick={() => navigate('/workouts/new')} className="secondary-button">
+              記録を投稿する
+            </button>
           </div>
         </div>
       </main>
