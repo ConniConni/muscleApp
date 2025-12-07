@@ -1,18 +1,69 @@
 .workout-edit-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-gradient);
+  padding: 40px var(--spacing-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景のアニメーション要素 */
+.workout-edit-page::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: var(--color-white-10);
+  border-radius: var(--radius-full);
+  top: -300px;
+  right: -300px;
+  animation: float 20s infinite ease-in-out;
+}
+
+.workout-edit-page::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: var(--color-white-05);
+  border-radius: var(--radius-full);
+  bottom: -200px;
+  left: -200px;
+  animation: float 15s infinite ease-in-out reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
 }
 
 .workout-edit-page .loading {
   text-align: center;
-  color: white;
-  font-size: 16px;
-  padding: 40px 20px;
+  color: var(--color-bg-white);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  padding: 60px var(--spacing-xl);
+  background: var(--color-white-10);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  position: relative;
+  z-index: var(--z-base);
 }
 
 @media (max-width: 768px) {
   .workout-edit-page {
-    padding: 20px 12px;
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .workout-edit-page {
+    padding: var(--spacing-xl) var(--spacing-md);
   }
 }
