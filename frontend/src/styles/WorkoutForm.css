@@ -1,15 +1,15 @@
 /* フォームコンテナ */
 .workout-form-container {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--color-white-95);
   backdrop-filter: blur(10px);
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1);
-  padding: 48px;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-2xl), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-5xl);
   max-width: 600px;
   width: 100%;
   position: relative;
-  z-index: 1;
-  animation: slideUp 0.5s ease-out;
+  z-index: var(--z-base);
+  animation: slideUp var(--transition-slow) ease-out;
 }
 
 @keyframes slideUp {
@@ -25,49 +25,49 @@
 
 /* フォーム */
 .workout-form h2 {
-  font-size: 32px;
-  font-weight: 800;
+  font-size: var(--font-size-6xl);
+  font-weight: var(--font-weight-extrabold);
   text-align: center;
-  margin: 0 0 12px 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin: 0 0 var(--spacing-md) 0;
+  background: var(--color-primary-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: -0.5px;
+  letter-spacing: var(--letter-spacing-tight);
 }
 
 .workout-form p {
   text-align: center;
-  color: #64748b;
-  margin-bottom: 36px;
-  font-size: 15px;
-  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-4xl);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-tight);
 }
 
 /* フォームグループ */
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 24px;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-2xl);
 }
 
 .form-group label {
-  font-weight: 600;
-  font-size: 14px;
-  color: #334155;
-  letter-spacing: 0.3px;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  letter-spacing: var(--letter-spacing-wide);
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  padding: 14px 18px;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  font-size: 15px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: white;
+  padding: 14px var(--spacing-xl);
+  border: 2px solid var(--color-bg-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  transition: var(--transition-all);
+  background: var(--color-bg-white);
   width: 100%;
   box-sizing: border-box;
 }
@@ -76,28 +76,28 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
   transform: translateY(-1px);
 }
 
 .form-group input:hover:not(:focus),
 .form-group select:hover:not(:focus),
 .form-group textarea:hover:not(:focus) {
-  border-color: #cbd5e1;
+  border-color: var(--color-bg-hover);
 }
 
 .form-group input.input-error,
 .form-group select.input-error,
 .form-group textarea.input-error {
-  border-color: #ef4444;
-  background: #fef2f2;
+  border-color: var(--color-error);
+  background: var(--color-error-bg);
 }
 
 .form-group input.input-error:focus,
 .form-group select.input-error:focus,
 .form-group textarea.input-error:focus {
-  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+  box-shadow: var(--shadow-focus-error);
 }
 
 .form-group textarea {
@@ -110,44 +110,44 @@
 .form-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
 }
 
 /* エラーメッセージ */
 .field-error {
-  color: #dc2626;
-  font-size: 13px;
-  margin-top: 4px;
+  color: var(--color-error-dark);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-xs);
   display: flex;
   align-items: center;
-  gap: 4px;
-  font-weight: 500;
+  gap: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
 }
 
 .field-error::before {
   content: '⚠';
-  font-size: 14px;
+  font-size: var(--font-size-base);
 }
 
 .error-message {
-  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-  color: #991b1b;
-  padding: 14px 18px;
-  border-radius: 12px;
-  font-size: 14px;
-  margin-bottom: 20px;
-  border: 1px solid #fca5a5;
+  background: var(--color-error-bg-gradient);
+  color: var(--color-error-darker);
+  padding: 14px var(--spacing-xl);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-xl);
+  border: 1px solid var(--color-error-border);
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 500;
-  animation: shake 0.5s;
+  font-weight: var(--font-weight-medium);
+  animation: shake var(--transition-slow);
 }
 
 .error-message::before {
   content: '⚠️';
-  font-size: 18px;
+  font-size: var(--font-size-xl);
   flex-shrink: 0;
 }
 
@@ -160,35 +160,35 @@
 /* フォームアクション */
 .form-actions {
   display: flex;
-  gap: 16px;
-  margin-top: 32px;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-3xl);
 }
 
 .btn-cancel,
 .btn-submit {
   flex: 1;
-  padding: 16px;
+  padding: var(--spacing-lg);
   border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 700;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: 0.5px;
+  transition: var(--transition-all);
+  letter-spacing: var(--letter-spacing-wider);
   position: relative;
   overflow: hidden;
 }
 
 /* キャンセルボタン */
 .btn-cancel {
-  background: #f1f5f9;
-  color: #64748b;
-  border: 2px solid #e2e8f0;
+  background: var(--color-bg-gray);
+  color: var(--color-text-muted);
+  border: 2px solid var(--color-bg-border);
 }
 
 .btn-cancel:hover:not(:disabled) {
-  background: #e2e8f0;
-  color: #475569;
+  background: var(--color-bg-border);
+  color: var(--color-text-tertiary);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
@@ -200,8 +200,8 @@
 
 /* 送信ボタン */
 .btn-submit {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--color-primary-gradient);
+  color: var(--color-bg-white);
 }
 
 .btn-submit::before {
@@ -213,12 +213,12 @@
   height: 100%;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity var(--transition-base);
 }
 
 .btn-submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  box-shadow: var(--shadow-button-hover);
 }
 
 .btn-submit:hover:not(:disabled)::before {
@@ -227,7 +227,7 @@
 
 .btn-submit:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: var(--shadow-button-active);
 }
 
 .btn-cancel:disabled,
@@ -240,12 +240,12 @@
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
   .workout-form-container {
-    padding: 32px 24px;
-    border-radius: 20px;
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+    border-radius: var(--radius-xl);
   }
 
   .workout-form h2 {
-    font-size: 28px;
+    font-size: var(--font-size-5xl);
   }
 
   .form-row {
@@ -257,7 +257,7 @@
   .form-group input,
   .form-group select,
   .form-group textarea {
-    padding: 12px 16px;
+    padding: var(--spacing-md) var(--spacing-lg);
   }
 
   .btn-cancel,
@@ -268,15 +268,15 @@
 
 @media (max-width: 480px) {
   .workout-form-container {
-    padding: 28px 20px;
+    padding: var(--spacing-5xl) var(--spacing-xl);
   }
 
   .workout-form h2 {
-    font-size: 24px;
+    font-size: var(--font-size-4xl);
   }
 
   .workout-form p {
-    font-size: 14px;
+    font-size: var(--font-size-base);
   }
 
   .form-actions {

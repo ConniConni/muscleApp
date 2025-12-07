@@ -1,14 +1,14 @@
 .workout-detail-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 40px 20px;
+  background: var(--color-bg-gradient-page);
+  padding: 40px var(--spacing-xl);
 }
 
 .detail-container {
   max-width: 800px;
   margin: 0 auto;
-  background: white;
-  border-radius: 12px;
+  background: var(--color-bg-white);
+  border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -17,57 +17,97 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: var(--spacing-xl);
   border-bottom: 1px solid #f0f0f0;
 }
 
 .btn-back {
-  background: none;
-  border: none;
-  color: #666;
-  font-size: 16px;
+  background: var(--color-bg-gray);
+  border: 2px solid var(--color-bg-border);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
   cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: background-color 0.3s;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  transition: var(--transition-all);
 }
 
 .btn-back:hover {
-  background-color: #f5f5f5;
+  background: var(--color-bg-border);
+  color: var(--color-text-tertiary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .detail-actions {
   display: flex;
-  gap: 12px;
+  gap: var(--spacing-md);
 }
 
 .btn-edit,
 .btn-delete {
-  padding: 8px 16px;
+  padding: var(--spacing-sm) var(--spacing-lg);
   border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
   cursor: pointer;
-  transition: all 0.3s;
+  transition: var(--transition-all);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-edit {
-  background-color: #4a90e2;
-  color: white;
+  background: var(--color-primary-gradient);
+  color: var(--color-bg-white);
+}
+
+.btn-edit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
 }
 
 .btn-edit:hover {
-  background-color: #357abd;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+.btn-edit:hover::before {
+  opacity: 1;
 }
 
 .btn-delete {
-  background-color: #dc3545;
-  color: white;
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: var(--color-bg-white);
+}
+
+.btn-delete::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
 }
 
 .btn-delete:hover {
-  background-color: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(220, 53, 69, 0.4);
+}
+
+.btn-delete:hover::before {
+  opacity: 1;
 }
 
 .detail-content {
@@ -76,43 +116,65 @@
 
 .user-section {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 16px;
   margin-bottom: 30px;
+}
+
+.user-info-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
 }
 
 .user-avatar {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   object-fit: cover;
 }
 
 .user-avatar-placeholder {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-gradient);
+  color: var(--color-bg-white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 24px;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-4xl);
   text-transform: uppercase;
 }
 
-.user-info .username {
+.username {
   margin: 0;
-  font-size: 18px;
-  font-weight: 500;
-  color: #333;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
 }
 
-.user-info .datetime {
-  margin: 4px 0 0;
-  font-size: 14px;
-  color: #666;
+.workout-datetime {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.workout-datetime .date {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-tertiary);
+  white-space: nowrap;
+}
+
+.workout-datetime .time {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-xs);
+  white-space: nowrap;
 }
 
 .workout-section {
@@ -120,72 +182,83 @@
 }
 
 .body-part-badge {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 500;
+  background: var(--color-primary-gradient);
+  color: var(--color-bg-white);
+  padding: 6px var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
   display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: var(--spacing-md);
 }
 
 .exercise-name {
   margin: 0;
-  font-size: 32px;
-  color: #333;
+  font-size: var(--font-size-6xl);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: var(--letter-spacing-tight);
 }
 
 .stats-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
+  gap: var(--spacing-xl);
   margin-bottom: 30px;
 }
 
 .stat-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 24px;
-  border-radius: 12px;
+  background: var(--color-bg-gradient-light);
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-md);
   text-align: center;
+  border: 1px solid var(--color-bg-border);
 }
 
 .stat-card .stat-label {
   display: block;
-  font-size: 14px;
-  margin-bottom: 8px;
-  opacity: 0.9;
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
 }
 
 .stat-card .stat-value {
   display: block;
-  font-size: 28px;
-  font-weight: 600;
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text-primary);
+  background: var(--color-primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .memo-section {
-  background: #f8f9fa;
-  padding: 20px;
-  border-radius: 12px;
+  background: var(--color-bg-light);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
   margin-bottom: 30px;
 }
 
 .memo-section h4 {
-  margin: 0 0 12px;
-  font-size: 16px;
-  color: #333;
+  margin: 0 0 var(--spacing-md);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-bold);
 }
 
 .memo-section p {
   margin: 0;
-  line-height: 1.6;
-  color: #555;
+  line-height: var(--line-height-tight);
+  color: var(--color-text-tertiary);
 }
 
 .image-section {
   margin-bottom: 30px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
@@ -197,8 +270,8 @@
 
 .interaction-section {
   display: flex;
-  gap: 24px;
-  padding: 20px 0;
+  gap: var(--spacing-2xl);
+  padding: var(--spacing-xl) 0;
   border-top: 1px solid #f0f0f0;
   border-bottom: 1px solid #f0f0f0;
   margin-bottom: 30px;
@@ -207,24 +280,25 @@
 .interaction-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  color: #666;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
 }
 
 .interaction-item .icon {
-  font-size: 20px;
+  font-size: var(--font-size-2xl);
 }
 
 .comments-section h4 {
-  margin: 0 0 20px;
-  font-size: 18px;
-  color: #333;
+  margin: 0 0 var(--spacing-xl);
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-bold);
 }
 
 .comment {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
   border-bottom: 1px solid #f0f0f0;
 }
 
@@ -237,28 +311,28 @@
 .comment-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 .comment-avatar {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   object-fit: cover;
 }
 
 .comment-avatar-placeholder {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-gradient);
+  color: var(--color-bg-white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
   text-transform: uppercase;
 }
 
@@ -268,42 +342,42 @@
 }
 
 .comment-username {
-  font-weight: 500;
-  font-size: 14px;
-  color: #333;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
 }
 
 .comment-time {
-  font-size: 12px;
+  font-size: var(--font-size-xs);
   color: #999;
 }
 
 .comment-content {
   margin: 0;
   padding-left: 44px;
-  color: #555;
-  line-height: 1.6;
+  color: var(--color-text-tertiary);
+  line-height: var(--line-height-tight);
 }
 
 .loading,
 .error {
   text-align: center;
-  padding: 40px 20px;
-  color: white;
-  font-size: 16px;
+  padding: 40px var(--spacing-xl);
+  color: var(--color-bg-white);
+  font-size: var(--font-size-lg);
 }
 
 @media (max-width: 768px) {
   .workout-detail-page {
-    padding: 20px 12px;
+    padding: var(--spacing-xl) var(--spacing-md);
   }
 
   .detail-content {
-    padding: 20px;
+    padding: var(--spacing-xl);
   }
 
   .exercise-name {
-    font-size: 24px;
+    font-size: var(--font-size-4xl);
   }
 
   .stats-section {
@@ -311,16 +385,23 @@
   }
 
   .detail-header {
-    padding: 16px;
+    padding: var(--spacing-lg);
   }
 
   .detail-actions {
-    gap: 8px;
+    gap: var(--spacing-sm);
   }
 
   .btn-edit,
   .btn-delete {
-    padding: 6px 12px;
-    font-size: 12px;
+    padding: 6px var(--spacing-md);
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-header {
+    padding: var(--spacing-lg);
+    gap: var(--spacing-sm);
   }
 }

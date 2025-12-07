@@ -1,8 +1,8 @@
 /* ホーム全体のコンテナ */
 .home-container {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f8fafc 0%, #e2e8f0 100%);
-  animation: fadeIn 0.5s ease-out;
+  background: var(--color-bg-gradient-page);
+  animation: fadeIn var(--transition-slow) ease-out;
 }
 
 @keyframes fadeIn {
@@ -16,9 +16,9 @@
 
 /* ヘッダー */
 .home-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 24px 48px;
+  background: var(--color-primary-gradient);
+  color: var(--color-bg-white);
+  padding: var(--spacing-2xl) var(--spacing-5xl);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,8 +34,8 @@
   right: -10%;
   width: 300px;
   height: 300px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
+  background: var(--color-white-10);
+  border-radius: var(--radius-full);
   animation: float 15s infinite ease-in-out;
 }
 
@@ -50,46 +50,48 @@
 
 .home-header h1 {
   margin: 0;
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: var(--letter-spacing-tight);
   position: relative;
-  z-index: 1;
+  z-index: var(--z-base);
 }
 
-.user-info {
+.home-header .user-info {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: var(--spacing-xl);
   position: relative;
-  z-index: 1;
+  z-index: var(--z-base);
+  flex: none;      /* WorkoutCard.cssの影響を打ち消す */
+  min-width: auto; /* WorkoutCard.cssの影響を打ち消す */
 }
 
-.user-info span {
-  font-size: 15px;
-  font-weight: 500;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.2);
+.home-header .user-info span {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--color-white-20);
   backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-white-30);
 }
 
 .logout-button {
-  padding: 10px 24px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #667eea;
+  padding: 10px var(--spacing-2xl);
+  background: var(--color-white-95);
+  color: var(--color-primary);
   border: 2px solid transparent;
-  border-radius: 12px;
-  font-size: 14px;
-  font-weight: 700;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: 0.5px;
+  transition: var(--transition-all);
+  letter-spacing: var(--letter-spacing-wider);
 }
 
 .logout-button:hover {
-  background: white;
+  background: var(--color-bg-white);
   border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -102,20 +104,20 @@
 
 /* メインコンテンツ */
 .home-main {
-  padding: 48px;
+  padding: var(--spacing-5xl);
   max-width: 1200px;
   margin: 0 auto;
 }
 
 /* ウェルカムカード */
 .welcome-card {
-  background: white;
-  border-radius: 24px;
-  padding: 48px;
+  background: var(--color-bg-white);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-5xl);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   position: relative;
   overflow: hidden;
-  animation: slideUp 0.6s ease-out 0.2s both;
+  animation: slideUp var(--transition-slow) ease-out 0.2s both;
 }
 
 @keyframes slideUp {
@@ -136,34 +138,34 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background: var(--color-primary-gradient);
 }
 
 .welcome-card h2 {
-  color: #1e293b;
-  margin-bottom: 20px;
-  font-size: 32px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xl);
+  font-size: var(--font-size-6xl);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: var(--letter-spacing-tight);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--spacing-md);
 }
 
 .welcome-card > p {
-  color: #64748b;
-  font-size: 17px;
-  margin-bottom: 36px;
-  line-height: 1.8;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-4xl);
+  line-height: var(--line-height-relaxed);
 }
 
 /* ユーザー詳細 */
 .user-details {
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  border-radius: 16px;
-  padding: 32px;
-  margin-bottom: 36px;
-  border: 1px solid #e2e8f0;
+  background: var(--color-bg-gradient-light);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-3xl);
+  margin-bottom: var(--spacing-4xl);
+  border: 1px solid var(--color-bg-border);
   position: relative;
   overflow: hidden;
 }
@@ -176,18 +178,18 @@
   width: 200px;
   height: 200px;
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   z-index: 0;
 }
 
 .user-details h3 {
   margin-top: 0;
-  margin-bottom: 24px;
-  color: #1e293b;
-  font-size: 22px;
-  font-weight: 700;
+  margin-bottom: var(--spacing-2xl);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
   position: relative;
-  z-index: 1;
+  z-index: var(--z-base);
 }
 
 .user-details ul {
@@ -195,18 +197,18 @@
   padding: 0;
   margin: 0;
   position: relative;
-  z-index: 1;
+  z-index: var(--z-base);
 }
 
 .user-details li {
   padding: 14px 0;
-  color: #475569;
-  font-size: 16px;
-  border-bottom: 1px solid #e2e8f0;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-lg);
+  border-bottom: 1px solid var(--color-bg-border);
   display: flex;
   align-items: center;
-  gap: 12px;
-  transition: all 0.3s;
+  gap: var(--spacing-md);
+  transition: var(--transition-all);
 }
 
 .user-details li:last-child {
@@ -214,87 +216,87 @@
 }
 
 .user-details li:hover {
-  padding-left: 8px;
-  color: #1e293b;
+  padding-left: var(--spacing-sm);
+  color: var(--color-text-primary);
 }
 
 .user-details li strong {
-  color: #334155;
-  font-weight: 700;
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-bold);
   min-width: 140px;
 }
 
 .user-details li strong::before {
   content: '▸';
-  margin-right: 8px;
-  color: #667eea;
-  font-size: 18px;
+  margin-right: var(--spacing-sm);
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
 }
 
 /* アクションボタン */
 .action-buttons {
   display: flex;
-  gap: 16px;
-  margin-top: 32px;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-3xl);
 }
 
 .primary-button,
 .secondary-button {
   flex: 1;
-  padding: 16px 32px;
+  padding: var(--spacing-lg) var(--spacing-3xl);
   border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 700;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: 0.5px;
+  transition: var(--transition-all);
+  letter-spacing: var(--letter-spacing-wider);
 }
 
 .primary-button {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--color-primary-gradient);
+  color: var(--color-bg-white);
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .primary-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: var(--shadow-button-hover);
 }
 
 .secondary-button {
-  background: white;
-  color: #667eea;
-  border: 2px solid #667eea;
+  background: var(--color-bg-white);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
 }
 
 .secondary-button:hover {
-  background: #667eea;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-bg-white);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  box-shadow: var(--shadow-button-hover);
 }
 
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
   .home-header {
     flex-direction: column;
-    gap: 20px;
+    gap: var(--spacing-xl);
     text-align: center;
-    padding: 24px 32px;
+    padding: var(--spacing-2xl) var(--spacing-3xl);
   }
 
   .home-header h1 {
-    font-size: 24px;
+    font-size: var(--font-size-4xl);
   }
 
-  .user-info {
+  .home-header .user-info {
     flex-direction: column;
-    gap: 12px;
+    gap: var(--spacing-md);
     width: 100%;
   }
 
-  .user-info span {
+  .home-header .user-info span {
     width: 100%;
     text-align: center;
   }
@@ -304,28 +306,28 @@
   }
 
   .home-main {
-    padding: 32px 24px;
+    padding: var(--spacing-3xl) var(--spacing-2xl);
   }
 
   .welcome-card {
-    padding: 32px 24px;
-    border-radius: 20px;
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+    border-radius: var(--radius-xl);
   }
 
   .welcome-card h2 {
-    font-size: 26px;
+    font-size: var(--font-size-5xl);
     flex-direction: column;
     text-align: center;
   }
 
   .user-details {
-    padding: 24px 20px;
+    padding: var(--spacing-2xl) var(--spacing-xl);
   }
 
   .user-details li {
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: var(--spacing-xs);
   }
 
   .user-details li strong {
@@ -339,36 +341,36 @@
 
 @media (max-width: 480px) {
   .home-header {
-    padding: 20px 16px;
+    padding: var(--spacing-xl) var(--spacing-lg);
   }
 
   .home-header h1 {
-    font-size: 20px;
+    font-size: var(--font-size-3xl);
   }
 
   .home-main {
-    padding: 24px 16px;
+    padding: var(--spacing-2xl) var(--spacing-lg);
   }
 
   .welcome-card {
-    padding: 24px 20px;
+    padding: var(--spacing-2xl) var(--spacing-xl);
   }
 
   .welcome-card h2 {
-    font-size: 22px;
+    font-size: var(--font-size-3xl);
   }
 
   .welcome-card > p {
-    font-size: 15px;
+    font-size: var(--font-size-md);
   }
 
   .user-details h3,
   .next-steps h3 {
-    font-size: 18px;
+    font-size: var(--font-size-xl);
   }
 
   .user-details li,
   .next-steps p {
-    font-size: 14px;
+    font-size: var(--font-size-base);
   }
 }

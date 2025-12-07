@@ -57,8 +57,8 @@ const WorkoutDetail: React.FC = () => {
     const date = new Date(dateString);
     return date.toLocaleDateString('ja-JP', {
       year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
     });
   };
 
@@ -104,16 +104,17 @@ const WorkoutDetail: React.FC = () => {
 
         <div className="detail-content">
           <div className="user-section">
-            {workout.user.profileImageUrl ? (
-              <img src={workout.user.profileImageUrl} alt={workout.user.username} className="user-avatar" />
-            ) : (
-              <div className="user-avatar-placeholder">{workout.user.username[0]}</div>
-            )}
-            <div className="user-info">
+            <div className="user-info-left">
+              {workout.user.profileImageUrl ? (
+                <img src={workout.user.profileImageUrl} alt={workout.user.username} className="user-avatar" />
+              ) : (
+                <div className="user-avatar-placeholder">{workout.user.username[0]}</div>
+              )}
               <h3 className="username">{workout.user.username}</h3>
-              <p className="datetime">
-                {formatDate(workout.workoutDate)} {formatTime(workout.createdAt)}
-              </p>
+            </div>
+            <div className="workout-datetime">
+              <span className="date">{formatDate(workout.workoutDate)}</span>
+              <span className="time">{formatTime(workout.createdAt)}</span>
             </div>
           </div>
 
