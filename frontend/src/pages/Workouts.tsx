@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import WorkoutList from '../components/WorkoutList';
 import { getWorkouts } from '../lib/workoutApi';
 import { Workout } from '../types/workout';
@@ -7,6 +8,7 @@ import '../styles/Workouts.css';
 
 const Workouts: React.FC = () => {
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
   const [workouts, setWorkouts] = useState<Workout[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -36,14 +38,22 @@ const Workouts: React.FC = () => {
     navigate('/workouts/new');
   };
 
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
   return (
     <div className="workouts-page">
-      <div className="workouts-header">
-        <h1>筋トレ記録</h1>
-        <button className="btn-create" onClick={handleCreateClick}>
-          ＋ 記録を投稿
-        </button>
-      </div>
+      <header className="workouts-header">
+        <h1>筋トレ記録共有アプリ</h1>
+        <div className="user-info">
+          <span>ようこそ、{user?.username}さん</span>
+          <button onClick={handleLogout} className="logout-button">
+            ログアウト
+          </button>
+        </div>
+      </header>
 
       {error && <div className="error-message">{error}</div>}
 
@@ -52,6 +62,10 @@ const Workouts: React.FC = () => {
         onWorkoutClick={handleWorkoutClick}
         loading={loading}
       />
+
+      <button className="fab-create" onClick={handleCreateClick}>
+        ＋
+      </button>
     </div>
   );
 };
