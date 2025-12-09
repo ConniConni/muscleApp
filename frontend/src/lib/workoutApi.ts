@@ -68,3 +68,25 @@ export const getComments = async (workoutId: string): Promise<any[]> => {
 export const deleteComment = async (commentId: string): Promise<void> => {
   await api.delete(`/comments/${commentId}`);
 };
+
+// カレンダーデータを取得
+export const getCalendar = async (year: number, month: number): Promise<any> => {
+  const response = await api.get(`/workouts/calendar`, {
+    params: { year, month },
+  });
+  return response.data;
+};
+
+// 種目一覧を取得
+export const getExercises = async (): Promise<any[]> => {
+  const response = await api.get('/workouts/exercises');
+  return response.data;
+};
+
+// 種目別の記録を取得
+export const getWorkoutsByExercise = async (exerciseName: string): Promise<Workout[]> => {
+  const response = await api.get('/workouts/by-exercise', {
+    params: { name: exerciseName },
+  });
+  return response.data;
+};
