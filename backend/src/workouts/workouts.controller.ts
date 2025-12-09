@@ -8,6 +8,7 @@ import {
   Delete,
   UseGuards,
   Request,
+  Query,
 } from '@nestjs/common';
 import { WorkoutsService } from './workouts.service';
 import { CreateWorkoutDto } from './dto/create-workout.dto';
@@ -32,6 +33,32 @@ export class WorkoutsController {
   @Get('me')
   findMyWorkouts(@Request() req) {
     return this.workoutsService.findMyWorkouts(req.user.userId);
+  }
+
+  @Get('calendar')
+  getCalendar(
+    @Request() req,
+    @Query('year') year: string,
+    @Query('month') month: string,
+  ) {
+    return this.workoutsService.getCalendar(
+      req.user.userId,
+      parseInt(year),
+      parseInt(month),
+    );
+  }
+
+  @Get('exercises')
+  getExercises(@Request() req) {
+    return this.workoutsService.getExercises(req.user.userId);
+  }
+
+  @Get('by-exercise')
+  getByExercise(
+    @Request() req,
+    @Query('name') exerciseName: string,
+  ) {
+    return this.workoutsService.getByExercise(req.user.userId, exerciseName);
   }
 
   @Get(':id')
