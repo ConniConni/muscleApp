@@ -260,4 +260,112 @@ export class WorkoutsService {
       where: { id },
     });
   }
+
+  async getCalendar(userId: string, year: number, month: number) {
+    // 指定された月の開始日と終了日を計算
+    const startDate = new Date(year, month - 1, 1);
+    const endDate = new Date(year, month, 0, 23, 59, 59, 999);
+
+    // 指定された月のトレーニング記録を取得
+    const workouts = await this.prisma.workout.findMany({
+      where: {
+        userId,
+        workoutDate: {
+          gte: startDate,
+          lte: endDate,
+        },
+      },
+      select: {
+        id: true,
+        workoutDate: true,
+        bodyPart: true,
+        exerciseName: true,
+      },
+      orderBy: {
+        workoutDate: 'asc',
+      },
+    });
+
+    // 日付ごとにグループ化
+    const groupedByDate: Record<string, any[]> = {};
+    workouts.forEach((workout) => {
+      const dateKey = workout.workoutDate.toISOString().split('T')[0];
+      if (!groupedByDate[dateKey]) {
+        groupedByDate[dateKey] = [];
+      }
+      groupedByDate[dateKey].push(workout);
+    });
+
+    // カレンダー形式に整形
+    const calendar = Object.keys(groupedByDate).map((date) => ({
+      date,
+      count: groupedByDate[date].length,
+      workouts: groupedByDate[date],
+    }));
+
+    return {
+      year,
+      month,
+      days: calendar,
+    };
+  }
+
+  async getExercises(userId: string) {
+    // ユーザーが使用した全ての種目を取得（重複なし）
+    const workouts = await this.prisma.workout.findMany({
+      where: {
+        userId,
+      },
+      select: {
+        exerciseName: true,
+        bodyPart: true,
+      },
+      distinct: ['exerciseName'],
+      orderBy: {
+        exerciseName: 'asc',
+      },
+    });
+
+    // 種目ごとの記録数をカウント
+    const exercisesWithCount = await Promise.all(
+      workouts.map(async (workout) => {
+        const count = await this.prisma.workout.count({
+          where: {
+            userId,
+            exerciseName: workout.exerciseName,
+          },
+        });
+        return {
+          exerciseName: workout.exerciseName,
+          bodyPart: workout.bodyPart,
+          count,
+        };
+      }),
+    );
+
+    return exercisesWithCount;
+  }
+
+  async getByExercise(userId: string, exerciseName: string) {
+    // 特定の種目の記録を時系列順で取得
+    return this.prisma.workout.findMany({
+      where: {
+        userId,
+        exerciseName,
+      },
+      include: {
+        user: {
+          select: {
+            id: true,
+            username: true,
+            email: true,
+            profileImageUrl: true,
+          },
+        },
+      },
+      orderBy: {
+        workoutDate: 'desc',
+      },
+    });
+  }
 }
