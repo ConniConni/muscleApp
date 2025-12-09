@@ -1,8 +1,13 @@
 /* ワークアウトリストコンテナ */
 .workout-list {
   max-width: 900px;
-  margin: 0 auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 0;
+  margin-bottom: 0;
   padding: 0 var(--spacing-5xl) var(--spacing-5xl);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* ローディング状態 */

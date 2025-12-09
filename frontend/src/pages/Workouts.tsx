@@ -43,11 +43,18 @@ const Workouts: React.FC = () => {
     navigate('/login');
   };
 
+  const handleReviewClick = () => {
+    navigate('/review');
+  };
+
   return (
     <div className="workouts-page">
       <header className="workouts-header">
         <h1>筋トレ記録共有アプリ</h1>
         <div className="user-info">
+          <button onClick={handleReviewClick} className="review-button">
+            📊 振り返り
+          </button>
           <span>ようこそ、{user?.username}さん</span>
           <button onClick={handleLogout} className="logout-button">
             ログアウト

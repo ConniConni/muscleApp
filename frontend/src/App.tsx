@@ -9,6 +9,7 @@ import Workouts from './pages/Workouts';
 import WorkoutNew from './pages/WorkoutNew';
 import WorkoutDetail from './pages/WorkoutDetail';
 import WorkoutEdit from './pages/WorkoutEdit';
+import Review from './pages/Review';
 
 function App() {
   return (
@@ -54,6 +55,14 @@ function App() {
             element={
               <PrivateRoute>
                 <WorkoutEdit />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/review"
+            element={
+              <PrivateRoute>
+                <Review />
               </PrivateRoute>
             }
           />

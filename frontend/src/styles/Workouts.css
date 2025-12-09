@@ -78,6 +78,31 @@
   border: 1px solid var(--color-white-30);
 }
 
+.review-button {
+  padding: 10px var(--spacing-2xl);
+  background: var(--color-white-95);
+  color: var(--color-primary);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: var(--transition-all);
+  letter-spacing: var(--letter-spacing-wider);
+}
+
+.review-button:hover {
+  background: var(--color-bg-white);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.review-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 .logout-button {
   padding: 10px var(--spacing-2xl);
   background: var(--color-white-95);
@@ -186,8 +211,12 @@
     text-align: center;
   }
 
+  .review-button,
   .logout-button {
     width: 100%;
+    padding: 8px var(--spacing-lg);
+    font-size: var(--font-size-sm);
+    white-space: nowrap;
   }
 
   .error-message {
@@ -210,6 +239,12 @@
 
   .workouts-header h1 {
     font-size: var(--font-size-3xl);
+  }
+
+  .review-button,
+  .logout-button {
+    padding: 6px var(--spacing-md);
+    font-size: var(--font-size-xs);
   }
 
   .error-message {
