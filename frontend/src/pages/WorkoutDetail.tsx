@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getWorkout, deleteWorkout } from '../lib/workoutApi';
-import { Workout } from '../types/workout';
+import { Workout, Like, Comment } from '../types/workout';
 import { useAuth } from '../contexts/AuthContext';
+import LikeButton from '../components/LikeButton';
+import CommentSection from '../components/CommentSection';
 import '../styles/WorkoutDetail.css';
 
 const WorkoutDetail: React.FC = () => {
@@ -158,37 +160,20 @@ const WorkoutDetail: React.FC = () => {
           )}
 
           <div className="interaction-section">
-            <div className="interaction-item">
-              <span className="icon">❤️</span>
-              <span className="count">{workout.likes.length} いいね</span>
-            </div>
-            <div className="interaction-item">
-              <span className="icon">💬</span>
-              <span className="count">{workout.comments.length} コメント</span>
-            </div>
+            <LikeButton
+              workoutId={workout.id}
+              likes={workout.likes}
+              currentUserId={user?.id || ''}
+              onLikesChange={(likes: Like[]) => setWorkout({ ...workout, likes })}
+            />
           </div>
 
-          {workout.comments.length > 0 && (
-            <div className="comments-section">
-              <h4>コメント</h4>
-              {workout.comments.map(comment => (
-                <div key={comment.id} className="comment">
-                  <div className="comment-header">
-                    {comment.user.profileImageUrl ? (
-                      <img src={comment.user.profileImageUrl} alt={comment.user.username} className="comment-avatar" />
-                    ) : (
-                      <div className="comment-avatar-placeholder">{comment.user.username[0]}</div>
-                    )}
-                    <div className="comment-info">
-                      <span className="comment-username">{comment.user.username}</span>
-                      <span className="comment-time">{formatTime(comment.createdAt)}</span>
-                    </div>
-                  </div>
-                  <p className="comment-content">{comment.content}</p>
-                </div>
-              ))}
-            </div>
-          )}
+          <CommentSection
+            workoutId={workout.id}
+            comments={workout.comments}
+            currentUserId={user?.id || ''}
+            onCommentsChange={(comments: Comment[]) => setWorkout({ ...workout, comments })}
+          />
         </div>
       </div>
     </div>

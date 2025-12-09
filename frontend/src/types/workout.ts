@@ -21,6 +21,11 @@ export interface Workout {
 export interface Like {
   id: string;
   userId: string;
+  user: {
+    id: string;
+    username: string;
+    profileImageUrl: string | null;
+  };
 }
 
 export interface Comment {
